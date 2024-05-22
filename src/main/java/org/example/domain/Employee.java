@@ -1,57 +1,40 @@
 package org.example.domain;
 
-//@Entity
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Column;
+import jakarta.persistence.Table;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
+@Entity
+@Table(name = "EMPLOYEE")
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class Employee {
 
-//create fields id, name, department, salary
-    private Long id;
+    @Id
+    @Column(name = "EMPLOYEE_ID", nullable = false)
+    private String id;
+
+    @Column(name = "EMPLOYEE_NAME", nullable = false)
     private String name;
+
+    @Column(name = "DEPARTMENT", nullable = false)
     private String department;
+
+    @Column(name = "SALARY", nullable = false)
     private double salary;
 
-    //create constructor with all fields
-    public Employee(Long id, String name, String department, double salary) {
-        this.id = id;
-        this.name = name;
-        this.department = department;
-        this.salary = salary;
-    }
-
-    //create getters and setters for all fields
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(String department) {
-        this.department = department;
-    }
-
-    public double getSalary() {
-        return salary;
-    }
-
-    public void setSalary(double salary) {
-        this.salary = salary;
-    }
-
-
-
-
 }
+
+// Lombok @AllArgsConstructor will generate this constructor
+// public Employee(String id, String name, String department, double salary) {
+//     this.id = id;
+//     this.name = name;
+//     this.department = department;
+//     thi
